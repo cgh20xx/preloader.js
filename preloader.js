@@ -9,7 +9,6 @@
  */
 
 window.preloader = function(option) {
-    'use strict';
     var queue = {}; //儲存載完的檔案
     var settings = {
         manifest: [],
@@ -30,6 +29,7 @@ window.preloader = function(option) {
 
     for (i = 0; i < imgQty; i += 1) {
         img = new Image();
+        console.log(img.complete);
         img.addEventListener('load', (function(index, image, id) {
             return function(e) {
                 loadedImgQty++;
