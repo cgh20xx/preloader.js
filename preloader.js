@@ -2,13 +2,13 @@
  *  preloader.js
  *
  *  Author : Hank Hsiao
- *  Version: 0.9.2
+ *  Version: 1.0.0
  *  Create : 2015.8.18
- *  Update : 2015.11.17
+ *  Update : 2016.05.24
  *  License: MIT
  */
 
-window.preloader = function(option) {
+var preloader = function(option) {
     var queue = {}; //儲存載完的檔案
     var settings = {
         manifest: [],
