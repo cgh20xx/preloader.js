@@ -1,40 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<link rel="stylesheet" href="layout.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>prloader js</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>prloader js</title>
 </head>
 <body>
-	<script src="preloader.js"></script>
-	<script>
-		var source;
-		/**
-		 * preloader.js
-		 * 預載圖片資源
-		 */
-		preloader({
-			manifest : [
-				{id: 'test', src: 'test1.jpg'},
-				{id: 'test2', src: 'test2.jpg'},
-				{id: 'bg1', src: 'http://m.fun-taiwan.com/images/600x315/mainpage_02.jpg'},
-				{id: 'bg2', src: 'http://m.fun-taiwan.com/images/600x315/mainpage_05.jpg'},
-				{id: 'bg3', src: 'http://m.fun-taiwan.com/images/600x315/mainpage_03.jpg'},
-				{id: 'bg4', src: 'http://m.fun-taiwan.com/images/600x315/mainpage_01.jpg'},
-				{id: 'bg5', src: 'http://m.fun-taiwan.com/images/600x315/mainpage_04.jpg'}
-			],
-			onEachLoad: function(info) {
-				//loadState.innerHTML = '讀取中(' + info.index + '/' + info.imgQty + ')';
-				console.log(info);
-			},
-			onAllLoad: function(queue) {
-				//loadState.innerHTML = '讀取完畢';
-				console.log('img all loaded');
-				source = queue;
-				// init();
-			}
-		});
-	</script>
+    <script src="preloader.js"></script>
+    <script>
+        var cache; // to save loaded sources
+        /**
+         * preloader.js
+         * 預載圖片資源
+         */
+        preloader({
+            manifest : [
+                {id: 'img_1', src: 'images/img1.png'}, // 圖片預設可省略 type: 'image' 
+                {id: 'img_2', src: 'images/img2.png'},
+                {id: 'img_3', type: 'image', src: 'images/img3.png'},
+                {id: 'audio', type: 'audio', src: 'audio/ado.mp3'},
+                {id: 'video', type: 'video', src: 'video/vdo.mp4'},
+            ],
+            onEachLoad: function(info) {
+                console.log('讀取中(' + info.index + '/' + info.total + ')');
+            },
+            onAllLoad: function(source) {
+                console.log('preload all completed');
+                cache = source;
+            }
+        });
+    </script>
 </body>
 </html>
