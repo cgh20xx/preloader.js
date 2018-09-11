@@ -3,7 +3,7 @@
 支援格式包含 jpg png mp3 mp4
 
 # Download
-[preloader.js](https://cgh20xx.github.io/preloader.js/preloader.js)
+[preloader.js](https://cgh20xx.github.io/preloader.js/js/preloader.js)
 
 # Example
 ```javascript
