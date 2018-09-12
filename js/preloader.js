@@ -2,9 +2,9 @@
  *  preloader.js
  *
  *  Author : Hank Hsiao
- *  Version: 1.1.0
+ *  Version: 1.1.1
  *  Create : 2015.8.18
- *  Update : 2018.09.11
+ *  Update : 2018.09.12
  *  License: MIT
  */
 
@@ -84,6 +84,9 @@ var preloader = function(option) {
         var preloadObj = settings.manifest[i];
         if (preloadObj.type === 'audio') {
             var audio = document.createElement('audio');
+            if (preloadObj.crossOrigin) {
+                audio.crossOrigin = preloadObj.crossOrigin;
+            }
             var xhr = new XMLHttpRequest();
             xhr.open('GET', preloadObj.src, true);
             xhr.responseType = 'blob';
@@ -92,6 +95,9 @@ var preloader = function(option) {
             xhr.send();
         } else if (preloadObj.type === 'video') {
             var video = document.createElement('video');
+            if (preloadObj.crossOrigin) {
+                video.crossOrigin = preloadObj.crossOrigin;
+            }
             var xhr = new XMLHttpRequest();
             xhr.open('GET', preloadObj.src, true);
             xhr.responseType = 'blob';
@@ -100,6 +106,9 @@ var preloader = function(option) {
             xhr.send();
         } else {
             var img = document.createElement('img');
+            if (preloadObj.crossOrigin) {
+                img.crossOrigin = preloadObj.crossOrigin;
+            }
             img.addEventListener('load', handler.image.bind(img, preloadObj.id), false);
             img.addEventListener('error', onError.bind(img, preloadObj.id), false);
             img.src = preloadObj.src;

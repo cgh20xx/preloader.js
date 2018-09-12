@@ -17,7 +17,7 @@
         preloader({
             manifest : [
                 {id: 'img_1', src: 'images/img1.png'}, // 圖片預設可省略 type: 'image' 
-                {id: 'img_2', src: 'images/img2.png'},
+                {id: 'img_2', src: 'images/img2.png', crossOrigin: 'anonymous'}, // 跨網域資源支援 crossOrigin: 'anonymous'
                 {id: 'img_3', type: 'image', src: 'images/img3.png'},
                 {id: 'audio', type: 'audio', src: 'audio/ado.mp3'},
                 {id: 'video', type: 'video', src: 'video/vdo.mp4'},

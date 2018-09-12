@@ -6,13 +6,14 @@
 [preloader.js](https://cgh20xx.github.io/preloader.js/js/preloader.js)
 
 # Example
+跨網域資源可設定 crossOrigin: 'anonymous'
 ```javascript
 var cache; // to save loaded sources
 
 preloader({
     manifest : [
         {id: 'img_1', src: 'images/img1.png'}, // 圖片預設可省略 type: 'image' 
-        {id: 'img_2', src: 'images/img2.png'},
+        {id: 'img_2', src: 'images/img2.png', crossOrigin: 'anonymous'}, // 跨網域資源支援 crossOrigin: 'anonymous'
         {id: 'img_3', type: 'image', src: 'images/img3.png'},
         {id: 'audio', type: 'audio', src: 'audio/ado.mp3'},
         {id: 'video', type: 'video', src: 'video/vdo.mp4'},
